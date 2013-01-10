@@ -10,7 +10,6 @@
     set noerrorbells " don't make noise
     set novisualbell  " No blinking .
     set whichwrap=b,s,<,>,~,[,] " everything wraps
-
     set wildmenu " turn on command line completion wild style
     " ignore these list file extensions
     set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,
@@ -59,6 +58,9 @@
         " ruby standard 2 spaces, always
         au BufRead,BufNewFile *.rb,*.rhtml,*.erb set shiftwidth=2
         au BufRead,BufNewFile *.rb,*.rhtml,*.erb set softtabstop=2
+        " rails enable syntax highlight in config files
+        au BufRead,BufNewFile *file set filetype=ruby
+        au BufRead,BufNewFile *.hamlc set filetype=haml
     " }
 
     " C {
@@ -66,6 +68,7 @@
         au BufRead,BufNewFile *.c,*.h set cinwords=if,else,while,do,for,switch,case
         au BufRead,BufNewFile *.c,*.h set cindent
     " }
+    " 
 " }
 
 " GUI Settings {
@@ -86,7 +89,7 @@
         let g:miniBufExplMapWindowNavArrows = 1
         let g:miniBufExplMapCTabSwitchBufs = 1
         let g:miniBufExplModSelTarget = 1
-        let g:miniBufExplSplitBelow=1
+        let g:miniBufExplSplitBelow = 1
     " }
 
     " Rails.vim {
@@ -104,8 +107,8 @@
 
 
 " Custom {
-    set laststatus=2  " Always show status line.
     set nocompatible " explicitly get out of vi-compatible mode
+    set laststatus=2  " Always show status line.
     set noexrc " don't use local version of .(g)vimrc, .exrc
     " set background=dark " we plan to use a dark background
     colorscheme busybee
@@ -119,7 +122,6 @@
 " }
 
 " Commands {
-
     " Convenient command to see the difference between the current buffer and the
     " file it was loaded from, thus the changes you made.
     " Only define it when not defined already.
